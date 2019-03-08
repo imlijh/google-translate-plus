@@ -30,8 +30,11 @@
     const barElem = document.createElement('div');
     barElem.innerHTML = `
       <div id="gm-trans-container">
-        <button type="button" id="gm-button-save"
-           class="jfk-button jfk-button-standard">Save</button>
+        <div id="gm-button-save"
+             class="input-button header-button"
+             role="tab" tabindex="-1">
+          <div class="text">Save</div>
+        </div>
         <div id="gm-trans-list"></div>
       </div>
     `;
@@ -55,10 +58,11 @@
     if (!elem) {
       elem = document.createElement('div');
       elem.id = setting.key;
-      elem.className = 'jfk-button jfk-button-standard';
+      elem.className = 'input-button header-button';
 
       const text = document.createElement('span');
-      text.innerHTML = `${setting.srcText} -> ${setting.desText}`;
+      text.className = "text";
+      text.innerHTML = `${setting.srcText} &rarr; ${setting.desText}`;
       text.addEventListener('click', () => applySetting(setting));
       elem.appendChild(text);
 
@@ -66,7 +70,7 @@
       removeButton.href = 'javascript:;';
       removeButton.innerHTML = '&times;';
       removeButton.style.marginLeft = '10px';
-      removeButton.style.color = 'red';
+      removeButton.style.color = 'rgba(0, 0, 0, 0.54)';
       removeButton.addEventListener('click', () => removeSetting(setting));
       elem.appendChild(removeButton);
 
@@ -118,6 +122,8 @@
       min-width: 20px;
       cursor: pointer;
       line-height: unset;
+      padding-left: 16px;
+      padding-right: 16px;
     }
 
     #gm-trans-list {
@@ -125,17 +131,17 @@
     }
 
     #gm-trans-container {
-      padding-bottom: 10px;
-      margin-bottom: 10px;
-      border-bottom: 1px solid #e5e5e5
+      padding-bottom: 8px;
+      margin-bottom: 8px;
     }
 
-    #gm-trans-container .jfk-button-standard {
-      height: 30px;
+    #gm-trans-container .header-button {
       line-height: 27px;
       cursor: pointer;
       margin-right: 10px;
       display: inline-block;
+      padding-left: 10px;
+      padding-right: 10px;
     }
   `);
 
