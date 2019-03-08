@@ -5,7 +5,7 @@
 // @description  Bookmark your frequently used languages.
 // @author       greatghoul
 // @license      MIT
-// @match        https://translate.google.com/
+// @match        https://translate.google.com/*
 // @grant        none
 // ==/UserScript==
 
@@ -36,7 +36,7 @@
       </div>
     `;
 
-    document.querySelector('#gt-text-c').prepend(barElem);
+    document.querySelector('.input-button-container').after(barElem);
     Object.keys(localStorage).forEach(k => {
       if (k.match(/GTP_SETTING_/)) {
         renderSetting(JSON.parse(localStorage[k]));
@@ -78,14 +78,14 @@
     const setting = getCurrentSetting();
     const data = {};
     data[setting.srcLang] = find('#source').value;
-    data[setting.desLang] = find('#gt-res-content').innerText;
+    data[setting.desLang] = (find('.tlid-result .tlid-translation') || {}).textContent || '';
     data.auto = find('#source').value;
     return data;
   }
 
   function getCurrentSetting() {
-    const srcElem = find('#gt-sl-sugg .sl-sugg-button-container .jfk-button-checked');
-    const desElem = find('#gt-tl-sugg .sl-sugg-button-container .jfk-button-checked');
+    const srcElem = find('.sl-sugg .sl-sugg-button-container .jfk-button-checked');
+    const desElem = find('.tl-sugg .sl-sugg-button-container .jfk-button-checked');
     const setting = {
       srcLang: srcElem.getAttribute('value'),
       srcText: srcElem.innerText,
