@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Google Translate Plus
-// @namespace    https://github.com/greatghoul/google-translate-plus/
-// @version      0.1
+// @namespace    https://github.com/imlijh/google-translate-plus/
+// @version      0.2
 // @description  Bookmark your frequently used languages.
 // @author       greatghoul
 // @license      MIT

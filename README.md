@@ -8,7 +8,7 @@ Recommend [Tampermonkey] if you use Google Chrome
 
 If you have available userscript extension, open the script source below, it will be installed automatically.
 
-https://github.com/greatghoul/google-translate-plus/raw/master/contentscript.user.js
+https://github.com/imlijh/google-translate-plus/raw/master/contentscript.user.js
 
 ## Features
 
